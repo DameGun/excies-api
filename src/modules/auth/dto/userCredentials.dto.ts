@@ -1,5 +1,5 @@
-export type UserCredentialsDto = {
-  userId: string;
-  username: string;
+import { JwtPayload } from './jwtPayload.dto';
+
+export type UserCredentialsDto = JwtPayload & {
   isMetricSystemChoosed: boolean;
 };

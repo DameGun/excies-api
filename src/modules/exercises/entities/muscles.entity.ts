@@ -1,12 +1,11 @@
-import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany } from 'typeorm';
+
+import { AbstractEntityWithId } from '@/common/entities/abstractEntityWithId.entity';
 
 import { Exercise } from './exercise.entity';
 
 @Entity()
-export class Muscles {
-  @PrimaryGeneratedColumn()
-  id: string;
-
+export class Muscles extends AbstractEntityWithId {
   @Column()
   name: string;
 

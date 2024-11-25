@@ -12,12 +12,12 @@ export class ExercisesController {
   constructor(private readonly exercisesService: ExercisesService) {}
 
   @Get(':language')
-  async findAll(@Param('language') language: string): Promise<ExerciseTranslatedDto[]> {
+  async getAll(@Param('language') language: string): Promise<ExerciseTranslatedDto[]> {
     return await this.exercisesService.findAll(language);
   }
 
   @Get('/details/:id')
-  async findOne(@Param('id', ParseIntPipe) id: number): Promise<ExerciseTranslatedDetailsDto> {
+  async getOne(@Param('id', ParseIntPipe) id: number): Promise<ExerciseTranslatedDetailsDto> {
     return await this.exercisesService.findDetails(id);
   }
 }
