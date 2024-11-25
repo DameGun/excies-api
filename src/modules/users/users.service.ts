@@ -12,7 +12,7 @@ export class UsersService {
     private readonly usersRepository: Repository<User>
   ) {}
 
-  async findOneByUsername(username: string) {
+  async findOneByUsername(username: string): Promise<User> {
     const user = await this.usersRepository.findOneBy({ username });
 
     if (!user) {
@@ -22,7 +22,7 @@ export class UsersService {
     return user;
   }
 
-  async create(user: Partial<User>) {
+  async create(user: Partial<User>): Promise<User> {
     const userData = await this.usersRepository.create(user);
     return await this.usersRepository.save(userData);
   }
