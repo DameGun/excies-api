@@ -10,6 +10,7 @@ import { ExercisesModule } from '@/modules/exercises/exercises.module';
 
 import { JWTAuthGuard } from './common/guards/jwt-auth.guard';
 import { ExerciseListModule } from './modules/exercise-list/exercise-list.module';
+import { ExerciseListItemModule } from './modules/exercise-list-item/exercise-list-item.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ExerciseListModule } from './modules/exercise-list/exercise-list.module
     ExercisesModule,
     AuthModule,
     ExerciseListModule,
+    ExerciseListItemModule,
   ],
   providers: [
     {

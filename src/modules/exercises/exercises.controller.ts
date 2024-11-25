@@ -1,5 +1,6 @@
 import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 
+import { LanguageQueryParam } from '@/common/decorators/language-query-param.decorator';
 import { Public } from '@/common/decorators/public.decorator';
 
 import { ExerciseTranslatedDto } from './dto/exercise-translated.dto';
@@ -11,12 +12,12 @@ import { ExercisesService } from './exercises.service';
 export class ExercisesController {
   constructor(private readonly exercisesService: ExercisesService) {}
 
-  @Get(':language')
-  async getAll(@Param('language') language: string): Promise<ExerciseTranslatedDto[]> {
+  @Get()
+  async getAll(@LanguageQueryParam() language: string): Promise<ExerciseTranslatedDto[]> {
     return await this.exercisesService.findAll(language);
   }
 
-  @Get('/details/:id')
+  @Get('/:id/details')
   async getOne(@Param('id', ParseIntPipe) id: number): Promise<ExerciseTranslatedDetailsDto> {
     return await this.exercisesService.findDetails(id);
   }
