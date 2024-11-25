@@ -6,10 +6,10 @@ import * as bcrypt from 'bcrypt';
 
 import { UsersService } from '@/modules/users/users.service';
 
-import { AuthPayload } from './dto/authPayload.dto';
+import { AuthPayload } from './dto/auth-payload.dto';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
-import { UserCredentialsDto } from './dto/userCredentials.dto';
+import { UserCredentialsDto } from './dto/user-credentials.dto';
 
 @Injectable()
 export class AuthService {

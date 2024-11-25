@@ -1,8 +1,8 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
-import { AbstractEntityWithId } from '@/common/entities/abstractEntityWithId.entity';
+import { AbstractEntityWithId } from '@/common/entities/abstract-entity-with-id.entity';
 
-import { ExerciseTranslated } from './exerciseTranslated.entity';
+import { ExerciseTranslated } from './exercise-translated.entity';
 import { Muscles } from './muscles.entity';
 
 @Entity()

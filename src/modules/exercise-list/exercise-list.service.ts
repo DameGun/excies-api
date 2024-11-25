@@ -3,10 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
 
-import { CreateExerciseListDto } from './dto/createExerciseList.dto';
-import { ExerciseListDto } from './dto/exerciseList.dto';
-import { UpdateExerciseListDto } from './dto/updateExerciseList.dto';
-import { ExerciseList } from './entities/exerciseList.entity';
+import { CreateExerciseListDto } from './dto/create-exercise-list.dto';
+import { ExerciseListDto } from './dto/exercise-list.dto';
+import { UpdateExerciseListDto } from './dto/update-exercise-list.dto';
+import { ExerciseList } from './entities/exercise-list.entity';
 
 @Injectable()
 export class ExerciseListService {

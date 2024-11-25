@@ -4,7 +4,7 @@ import { Public } from '@/common/decorators/public.decorator';
 import { LocalAuthGuard } from '@/common/guards/local-auth.guard';
 
 import { AuthService } from './auth.service';
-import { AuthPayload } from './dto/authPayload.dto';
+import { AuthPayload } from './dto/auth-payload.dto';
 import { RegisterDto } from './dto/register.dto';
 
 @Controller('auth')

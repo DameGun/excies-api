@@ -1,4 +1,4 @@
-import { JwtPayload } from './jwtPayload.dto';
+import { JwtPayload } from './jwt-payload.dto';
 
 export type UserCredentialsDto = JwtPayload & {
   isMetricSystemChoosed: boolean;

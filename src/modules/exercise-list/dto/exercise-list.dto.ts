@@ -1,4 +1,4 @@
-import { ExerciseList } from '../entities/exerciseList.entity';
+import { ExerciseList } from '../entities/exercise-list.entity';
 
 export class ExerciseListDto extends ExerciseList {
   itemsCount: number;

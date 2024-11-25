@@ -1,6 +1,6 @@
 import { Column, Entity } from 'typeorm';
 
-import { AbstractEntityWithUUID } from '@/common/entities/abstractEntityWithUUID.entity';
+import { AbstractEntityWithUUID } from '@/common/entities/abstract-entity-with-uuid.entity';
 
 @Entity()
 export class User extends AbstractEntityWithUUID {

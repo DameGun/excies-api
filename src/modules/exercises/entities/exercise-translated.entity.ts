@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
-import { AbstractEntityWithId } from '@/common/entities/abstractEntityWithId.entity';
+import { AbstractEntityWithId } from '@/common/entities/abstract-entity-with-id.entity';
 
 import { Exercise } from './exercise.entity';
 

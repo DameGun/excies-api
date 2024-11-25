@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
-import { AbstractEntityWithUUID } from '@/common/entities/abstractEntityWithUUID.entity';
+import { AbstractEntityWithUUID } from '@/common/entities/abstract-entity-with-uuid.entity';
 import { User } from '@/modules/users/entities/user.entity';
 
 @Entity()

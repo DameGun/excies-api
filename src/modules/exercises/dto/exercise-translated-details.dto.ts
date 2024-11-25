@@ -1,4 +1,4 @@
-import { ExerciseTranslated } from '../entities/exerciseTranslated.entity';
+import { ExerciseTranslated } from '../entities/exercise-translated.entity';
 
 export type ExerciseTranslatedDetailsDto = Pick<
   ExerciseTranslated,

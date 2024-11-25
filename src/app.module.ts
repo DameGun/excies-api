@@ -9,7 +9,7 @@ import { DatabaseModule } from '@/modules/database/database.module';
 import { ExercisesModule } from '@/modules/exercises/exercises.module';
 
 import { JWTAuthGuard } from './common/guards/jwt-auth.guard';
-import { ExerciseListModule } from './modules/exercise-list/exerciseList.module';
+import { ExerciseListModule } from './modules/exercise-list/exercise-list.module';
 
 @Module({
   imports: [

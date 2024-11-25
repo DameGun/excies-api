@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { Exercise } from './entities/exercise.entity';
-import { ExerciseTranslated } from './entities/exerciseTranslated.entity';
+import { ExerciseTranslated } from './entities/exercise-translated.entity';
 import { Muscles } from './entities/muscles.entity';
 import { ExercisesController } from './exercises.controller';
 import { ExercisesService } from './exercises.service';

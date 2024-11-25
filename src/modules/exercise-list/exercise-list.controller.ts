@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 
-import { CurrentUser } from '@/common/decorators/currentUser.decorator';
+import { CurrentUser } from '@/common/decorators/current-user.decorator';
 
-import { CreateExerciseListDto } from './dto/createExerciseList.dto';
-import { UpdateExerciseListDto } from './dto/updateExerciseList.dto';
-import { ExerciseListService } from './exerciseList.service';
+import { CreateExerciseListDto } from './dto/create-exercise-list.dto';
+import { UpdateExerciseListDto } from './dto/update-exercise-list.dto';
+import { ExerciseListService } from './exercise-list.service';
 
 @Controller('exercise-lists')
 export class ExerciseListController {

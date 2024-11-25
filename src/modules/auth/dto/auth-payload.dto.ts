@@ -1,4 +1,4 @@
-import { UserCredentialsDto } from './userCredentials.dto';
+import { UserCredentialsDto } from './user-credentials.dto';
 
 export type AuthPayload = UserCredentialsDto & {
   accessToken: string;
