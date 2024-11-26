@@ -78,7 +78,16 @@ export class ExerciseListItemService {
     return await this.findOneById(exerciseListItem.id, language);
   }
 
-  async update(id: string, updateExerciseListItemDto: UpdateExerciseListItemDto): Promise<void> {
+  async update(
+    id: string,
+    updateExerciseListItemDto: UpdateExerciseListItemDto,
+    language: string
+  ): Promise<ExerciseListItemDto> {
     await this.exerciseListItemsRepository.update(id, updateExerciseListItemDto);
+    return await this.findOneById(id, language);
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.exerciseListItemsRepository.delete(id);
   }
 }
