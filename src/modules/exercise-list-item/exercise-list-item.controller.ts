@@ -2,9 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/commo
 
 import { LanguageQueryParam } from '@/common/decorators/language-query-param.decorator';
 
-import { CreateExerciseListItemDto } from './dto/create-exercise-list-item.dto';
-import { ExerciseListItemDto } from './dto/exercise-list-item.dto';
-import { UpdateExerciseListItemDto } from './dto/update-exercise-list-item.dto';
+import { CreateExerciseListItemDto, ExerciseListItemDto, UpdateExerciseListItemDto } from './dto';
 import { ExerciseListItemService } from './exercise-list-item.service';
 
 @Controller('exercise-lists/:listId/items')

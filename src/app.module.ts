@@ -4,13 +4,12 @@ import { APP_GUARD } from '@nestjs/core';
 
 import { DataSource } from 'typeorm';
 
+import { JWTAuthGuard } from '@/common/guards/jwt-auth.guard';
 import { AuthModule } from '@/modules/auth/auth.module';
 import { DatabaseModule } from '@/modules/database/database.module';
+import { ExerciseListModule } from '@/modules/exercise-list/exercise-list.module';
+import { ExerciseListItemModule } from '@/modules/exercise-list-item/exercise-list-item.module';
 import { ExercisesModule } from '@/modules/exercises/exercises.module';
-
-import { JWTAuthGuard } from './common/guards/jwt-auth.guard';
-import { ExerciseListModule } from './modules/exercise-list/exercise-list.module';
-import { ExerciseListItemModule } from './modules/exercise-list-item/exercise-list-item.module';
 
 @Module({
   imports: [

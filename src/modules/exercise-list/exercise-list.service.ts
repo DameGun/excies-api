@@ -5,9 +5,7 @@ import { Repository } from 'typeorm';
 
 import { MappingService } from '@/common/mappings/mappings.provider';
 
-import { CreateExerciseListDto } from './dto/create-exercise-list.dto';
-import { ExerciseListDto } from './dto/exercise-list.dto';
-import { UpdateExerciseListDto } from './dto/update-exercise-list.dto';
+import { CreateExerciseListDto, ExerciseListDto, UpdateExerciseListDto } from './dto';
 import { ExerciseList } from './entities/exercise-list.entity';
 
 @Injectable()
