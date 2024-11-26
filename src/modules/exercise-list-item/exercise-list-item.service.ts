@@ -5,9 +5,7 @@ import { Repository } from 'typeorm';
 
 import { MappingService } from '@/common/mappings/mappings.provider';
 
-import { CreateExerciseListItemDto } from './dto/create-exercise-list-item.dto';
-import { ExerciseListItemDto } from './dto/exercise-list-item.dto';
-import { UpdateExerciseListItemDto } from './dto/update-exercise-list-item.dto';
+import { CreateExerciseListItemDto, ExerciseListItemDto, UpdateExerciseListItemDto } from './dto';
 import { ExerciseListItem } from './entities/exercise-list-item.entity';
 import { exerciseListItemQueryOptions } from './options/exercise-list-item-query.options';
 
@@ -78,7 +76,16 @@ export class ExerciseListItemService {
     return await this.findOneById(exerciseListItem.id, language);
   }
 
-  async update(id: string, updateExerciseListItemDto: UpdateExerciseListItemDto): Promise<void> {
+  async update(
+    id: string,
+    updateExerciseListItemDto: UpdateExerciseListItemDto,
+    language: string
+  ): Promise<ExerciseListItemDto> {
     await this.exerciseListItemsRepository.update(id, updateExerciseListItemDto);
+    return await this.findOneById(id, language);
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.exerciseListItemsRepository.delete(id);
   }
 }

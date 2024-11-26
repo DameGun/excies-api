@@ -3,8 +3,7 @@ import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { LanguageQueryParam } from '@/common/decorators/language-query-param.decorator';
 import { Public } from '@/common/decorators/public.decorator';
 
-import { ExerciseTranslatedDto } from './dto/exercise-translated.dto';
-import { ExerciseTranslatedDetailsDto } from './dto/exercise-translated-details.dto';
+import { ExerciseTranslatedDetailsDto, ExerciseTranslatedDto } from './dto';
 import { ExercisesService } from './exercises.service';
 
 @Public()

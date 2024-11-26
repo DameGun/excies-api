@@ -1,6 +1,7 @@
-import { IsDate } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class UpdateExerciseListItemDto {
-  @IsDate()
-  lastTimeUpdated: string;
+  @IsString()
+  @IsOptional()
+  customName: string;
 }

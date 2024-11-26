@@ -20,9 +20,12 @@ export class ExerciseListItem extends AbstractEntityWithUUID {
   @JoinColumn()
   exercise: Exercise;
 
+  @Column({ nullable: true })
+  customName: string | null;
+
   @Column({
     type: 'timestamp',
     nullable: true,
   })
-  lastTimeUpdated: string;
+  lastTimeUpdated: string | null;
 }

@@ -3,8 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
 
-import { ExerciseTranslatedDto } from './dto/exercise-translated.dto';
-import { ExerciseTranslatedDetailsDto } from './dto/exercise-translated-details.dto';
+import { ExerciseTranslatedDetailsDto, ExerciseTranslatedDto } from './dto';
 import { ExerciseTranslated } from './entities/exercise-translated.entity';
 
 @Injectable()
