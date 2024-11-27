@@ -4,6 +4,8 @@ import { AbstractEntityWithUUID } from '@/common/entities/abstract-entity-with-u
 import { ExerciseListItem } from '@/modules/exercise-list-item/entities/exercise-list-item.entity';
 import { User } from '@/modules/users/entities/user.entity';
 
+import { MAX_DESCRIPTION_LENGTH } from '../constants/validation.constants';
+
 @Entity()
 export class ExerciseList extends AbstractEntityWithUUID {
   @Column()
@@ -16,7 +18,10 @@ export class ExerciseList extends AbstractEntityWithUUID {
   @Column()
   name: string;
 
-  @Column({ nullable: true })
+  @Column({
+    nullable: true,
+    length: MAX_DESCRIPTION_LENGTH,
+  })
   description: string | null;
 
   @OneToMany(() => ExerciseListItem, (listItem) => listItem.list)

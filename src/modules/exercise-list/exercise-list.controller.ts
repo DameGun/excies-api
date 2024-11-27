@@ -25,10 +25,11 @@ export class ExerciseListController {
 
   @Patch(':id')
   async update(
+    @CurrentUser('userId') userId: string,
     @ParamUUID('id') id: string,
     @Body() updateExerciseListDto: UpdateExerciseListDto
   ): Promise<ExerciseListDto> {
-    return await this.exerciseListService.update(id, updateExerciseListDto);
+    return await this.exerciseListService.update(id, userId, updateExerciseListDto);
   }
 
   @Delete(':id')

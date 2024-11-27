@@ -29,7 +29,7 @@ export class ExerciseListItemController {
 
   @Patch(':id')
   async update(
-    @ParamUUID('listId') id: string,
+    @ParamUUID('id') id: string,
     @Body() updateExerciseListItem: UpdateExerciseListItemDto,
     @LanguageQueryParam() language: string
   ): Promise<ExerciseListItemDto> {
@@ -37,7 +37,7 @@ export class ExerciseListItemController {
   }
 
   @Delete(':id')
-  async delete(@ParamUUID('listId') id: string): Promise<void> {
+  async delete(@ParamUUID('id') id: string): Promise<void> {
     return await this.exerciseListItemService.delete(id);
   }
 }

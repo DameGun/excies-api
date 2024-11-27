@@ -48,9 +48,10 @@ export class ExerciseListService {
     userId: string,
     createExerciseListDto: CreateExerciseListDto
   ): Promise<ExerciseListDto> {
-    const isExerciseListWithThisNameExists = await this.exerciseListRepository.findOneBy({
-      name: createExerciseListDto.name,
-    });
+    const isExerciseListWithThisNameExists = this.checkIfListWithThisNameExists(
+      createExerciseListDto.name,
+      userId
+    );
 
     if (isExerciseListWithThisNameExists) {
       throw new ConflictException('Exercise List with this name already exists');
@@ -61,18 +62,24 @@ export class ExerciseListService {
       ...createExerciseListDto,
     });
     const exerciseListEntity = await this.exerciseListRepository.save(exerciseList);
+
     const mappedExerciseList = this.mappingService.map(exerciseListEntity, ExerciseListDto);
 
     return mappedExerciseList;
   }
 
-  async update(id: string, updateExerciseListDto: UpdateExerciseListDto): Promise<ExerciseListDto> {
+  async update(
+    id: string,
+    userId: string,
+    updateExerciseListDto: UpdateExerciseListDto
+  ): Promise<ExerciseListDto> {
     const currentExerciseList = await this.findOneById(id);
 
-    if (currentExerciseList.name !== updateExerciseListDto.name) {
-      const isExerciseListWithThisNameExists = await this.exerciseListRepository.findOneBy({
-        name: updateExerciseListDto.name,
-      });
+    if (updateExerciseListDto.name && currentExerciseList.name !== updateExerciseListDto.name) {
+      const isExerciseListWithThisNameExists = await this.checkIfListWithThisNameExists(
+        updateExerciseListDto.name,
+        userId
+      );
 
       if (isExerciseListWithThisNameExists) {
         throw new ConflictException('Exercise List with this name already exists');
@@ -85,5 +92,14 @@ export class ExerciseListService {
 
   async delete(id: string): Promise<void> {
     await this.exerciseListRepository.delete(id);
+  }
+
+  async checkIfListWithThisNameExists(name: string, userId: string): Promise<boolean> {
+    const isExerciseListWithThisNameExists = await this.exerciseListRepository.findOneBy({
+      name,
+      userId,
+    });
+
+    return isExerciseListWithThisNameExists ? true : false;
   }
 }
