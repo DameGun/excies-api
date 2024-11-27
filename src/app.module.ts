@@ -7,6 +7,7 @@ import { DataSource } from 'typeorm';
 import { JWTAuthGuard } from '@/common/guards/jwt-auth.guard';
 import { AuthModule } from '@/modules/auth/auth.module';
 import { DatabaseModule } from '@/modules/database/database.module';
+import { DetailedExerciseListItemModule } from '@/modules/detailed-exercise-list-item/detailed-exercise-list-item.module';
 import { ExerciseListModule } from '@/modules/exercise-list/exercise-list.module';
 import { ExerciseListItemModule } from '@/modules/exercise-list-item/exercise-list-item.module';
 import { ExercisesModule } from '@/modules/exercises/exercises.module';
@@ -19,6 +20,7 @@ import { ExercisesModule } from '@/modules/exercises/exercises.module';
     AuthModule,
     ExerciseListModule,
     ExerciseListItemModule,
+    DetailedExerciseListItemModule,
   ],
   providers: [
     {

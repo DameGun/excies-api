@@ -11,5 +11,6 @@ import { ExerciseListItemService } from './exercise-list-item.service';
   imports: [TypeOrmModule.forFeature([ExerciseListItem])],
   providers: [MappingService, ExerciseListItemService],
   controllers: [ExerciseListItemController],
+  exports: [ExerciseListItemService],
 })
 export class ExerciseListItemModule {}
