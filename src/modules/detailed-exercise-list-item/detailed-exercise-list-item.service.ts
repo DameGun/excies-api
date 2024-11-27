@@ -13,11 +13,14 @@ import {
 } from './dto';
 import { DetailedExerciseListItem } from './entities/detailed-exercise-list-item.entity';
 
+import { ExerciseListItemService } from '../exercise-list-item/exercise-list-item.service';
+
 @Injectable()
 export class DetailedExerciseListItemService {
   constructor(
     @InjectRepository(DetailedExerciseListItem)
     private readonly detailedExerciseListItemRepository: Repository<DetailedExerciseListItem>,
+    private readonly exerciseListItemService: ExerciseListItemService,
     private readonly mappingService: MappingService
   ) {}
 
@@ -52,6 +55,8 @@ export class DetailedExerciseListItemService {
     });
 
     await this.detailedExerciseListItemRepository.save(entity);
+
+    await this.exerciseListItemService.updateLastDetailedExerciseTime(listItemId, entity.time);
 
     return await this.findOneById(entity.id);
   }

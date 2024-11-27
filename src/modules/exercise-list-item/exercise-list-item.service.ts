@@ -85,6 +85,10 @@ export class ExerciseListItemService {
     return await this.findOneById(id, language);
   }
 
+  async updateLastDetailedExerciseTime(id: string, lastTimeUpdated: string) {
+    await this.exerciseListItemsRepository.update(id, { lastTimeUpdated });
+  }
+
   async delete(id: string): Promise<void> {
     await this.exerciseListItemsRepository.delete(id);
   }

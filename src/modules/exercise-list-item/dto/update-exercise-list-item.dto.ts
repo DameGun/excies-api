@@ -6,4 +6,7 @@ export class UpdateExerciseListItemDto {
   @Length(MIN_CUSTOM_NAME_LENGTH, MAX_CUSTOM_NAME_LENGTH)
   @IsOptional()
   customName: string | null;
+
+  @IsOptional()
+  lastTimeUpdated: string | null;
 }

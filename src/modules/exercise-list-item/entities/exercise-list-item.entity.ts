@@ -24,7 +24,7 @@ export class ExerciseListItem extends AbstractEntityWithUUID {
   customName: string | null;
 
   @Column({
-    type: 'timestamp',
+    type: 'time',
     nullable: true,
   })
   lastTimeUpdated: string | null;
