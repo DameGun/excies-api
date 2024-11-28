@@ -2,11 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   constructor(private readonly configService: ConfigService) {}
 
-  createTypeOrmOptions(): Promise<TypeOrmModuleOptions> | TypeOrmModuleOptions {
+  createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
       type: 'postgres',
       host: this.configService.getOrThrow('POSTGRES_HOST'),
@@ -16,6 +18,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       password: this.configService.getOrThrow('POSTGRES_PASSWORD'),
       autoLoadEntities: true,
       synchronize: this.configService.getOrThrow('POSTGRES_SYNC'),
+      namingStrategy: new SnakeNamingStrategy(),
     };
   }
 }

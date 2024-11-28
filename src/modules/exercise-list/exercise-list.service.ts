@@ -47,7 +47,7 @@ export class ExerciseListService {
     userId: string,
     createExerciseListDto: CreateExerciseListDto
   ): Promise<ExerciseListDto> {
-    const isExerciseListWithThisNameExists = this.checkIfListWithThisNameExists(
+    const isExerciseListWithThisNameExists = await this.checkIfListWithThisNameExists(
       createExerciseListDto.name,
       userId
     );
@@ -99,6 +99,6 @@ export class ExerciseListService {
       userId,
     });
 
-    return isExerciseListWithThisNameExists ? true : false;
+    return Boolean(isExerciseListWithThisNameExists);
   }
 }
