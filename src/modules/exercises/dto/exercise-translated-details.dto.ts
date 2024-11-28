@@ -1,6 +1,9 @@
+import { PickType } from '@nestjs/swagger';
+
 import { ExerciseTranslated } from '../entities/exercise-translated.entity';
 
-export type ExerciseTranslatedDetailsDto = Pick<
-  ExerciseTranslated,
-  'id' | 'description' | 'exerciseId'
->;
+export class ExerciseTranslatedDetailsDto extends PickType(ExerciseTranslated, [
+  'id',
+  'description',
+  'exerciseId',
+] as const) {}
