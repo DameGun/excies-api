@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 
-import { DEFAULT_LANGUAGE } from '@/constants/language.constants';
+export const DEFAULT_LANGUAGE = 'en';
 
 export const LanguageQueryParam = createParamDecorator((_: keyof any, ctx: ExecutionContext) => {
   const request = ctx.switchToHttp().getRequest();

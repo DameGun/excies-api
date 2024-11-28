@@ -1,4 +1,4 @@
-import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
@@ -13,7 +13,6 @@ export class ExerciseListService {
   constructor(
     @InjectRepository(ExerciseList)
     private readonly exerciseListRepository: Repository<ExerciseList>,
-    @Inject()
     private readonly mappingService: MappingService
   ) {}
 
