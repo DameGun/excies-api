@@ -1,5 +1,7 @@
+import { PartialType } from '@nestjs/swagger';
+
 import { UserCredentialsDto } from './user-credentials.dto';
 
-export type AuthPayload = UserCredentialsDto & {
+export class AuthPayload extends PartialType(UserCredentialsDto) {
   accessToken: string;
-};
+}
