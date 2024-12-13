@@ -56,7 +56,12 @@ export class DetailedExerciseListItemService {
 
     await this.detailedExerciseListItemRepository.save(entity);
 
-    await this.exerciseListItemService.updateLastDetailedExerciseTime(listItemId, entity.time);
+    const parsedDateAndTime = new Date(`${entity.date} ${entity.time}`).toISOString();
+
+    await this.exerciseListItemService.updateLastDetailedExerciseTime(
+      listItemId,
+      parsedDateAndTime
+    );
 
     return await this.findOneById(entity.id);
   }
