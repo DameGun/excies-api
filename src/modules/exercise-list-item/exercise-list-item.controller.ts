@@ -18,6 +18,14 @@ export class ExerciseListItemController {
     return await this.exerciseListItemService.findAllByListId(listId, language);
   }
 
+  @Get(':id')
+  async findOneById(
+    @ParamUUID('id') listItemId: string,
+    @LanguageQueryParam() language: string
+  ): Promise<ExerciseListItemDto> {
+    return await this.exerciseListItemService.findOneById(listItemId, language);
+  }
+
   @Post()
   async create(
     @ParamUUID('listId') listId: string,
