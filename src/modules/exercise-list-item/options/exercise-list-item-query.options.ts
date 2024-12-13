@@ -16,6 +16,7 @@ export const exerciseListItemQueryOptions: FindOneOptions<ExerciseListItem> = {
         name: true,
       },
     },
+    exerciseId: true,
     customName: true,
     lastTimeUpdated: true,
   },
