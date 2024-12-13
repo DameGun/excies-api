@@ -49,24 +49,16 @@ export class DetailedExerciseListItemService {
     listItemId: string,
     createDetailedExerciseListItemDto: CreateDetailedExerciseListItemDto
   ): Promise<DetailedExerciseListItemDto> {
-    const time = new Date(createDetailedExerciseListItemDto.dateTime).toTimeString();
-    const date = new Date(createDetailedExerciseListItemDto.dateTime).toDateString();
-
-    delete createDetailedExerciseListItemDto.dateTime;
-
     const entity = await this.detailedExerciseListItemRepository.create({
       listItemId,
-      time,
-      date,
       ...createDetailedExerciseListItemDto,
     });
 
     await this.detailedExerciseListItemRepository.save(entity);
 
-    await this.exerciseListItemService.updateLastDetailedExerciseTime(
-      listItemId,
-      createDetailedExerciseListItemDto.dateTime
-    );
+    const parsedDateTime = `${createDetailedExerciseListItemDto.date} ${createDetailedExerciseListItemDto.time}`;
+
+    await this.exerciseListItemService.updateLastDetailedExerciseTime(listItemId, parsedDateTime);
 
     return await this.findOneById(entity.id);
   }
